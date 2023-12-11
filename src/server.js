@@ -1,26 +1,56 @@
+// Importación de express
 const express = require('express')
+
+// Importación de path
 const path = require('path');
 
-// Inicializaciones
+//Importación de handlebars
+const { engine }  = require('express-handlebars')
+
+// INICIALIZACIONES
+// Instanciar express
 const app = express()
 
-// Configuraciones 
+// CONFIGURACIONES
+
+// Variables de configuración
 app.set('port',process.env.port || 3000)
 app.set('views',path.join(__dirname, 'views'))
 
-// Middlewares 
+// Establecer el path de la carpeta views
+app.set('views',path.join(__dirname, 'views'))
+// Establecer 
+app.engine('.hbs',engine({
+    defaultLayout:'main',
+    layoutsDir: path.join(app.get('views'),'layouts'),
+    partialsDir: path.join(app.get('views'),'partials'),
+    extname:'.hbs'
+}))
+app.set('view engine','.hbs')
+
+// MIDDLEWARS (use)
+// app.use(express.json())
+// Servidor va a trabajor con información en base a formularios
 app.use(express.urlencoded({extended:false}))
 
+// VARIABLES GLOBALES
 
-// Variables globales
 
-// Rutas 
+
+// RUTAS
+
+// Primera ruta
 app.get('/',(req,res)=>{
-    res.send("Server on")
+    res.render('index')
 })
 
-// Archivos estáticos
+app.use(require('./routers/index.routes'))
+
+// ARCHIVOS ESTÁTICOS
+//Definir archivos estáticos y públicos
 app.use(express.static(path.join(__dirname,'public')))
 
 
+// Exportar la variable app
 module.exports = app
+
