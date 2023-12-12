@@ -34,7 +34,7 @@ userSchema.methods.encrypPassword = async (password)=>{
 
 // Método para verificar si el password ingresado es el mismo de la BDD
 userSchema.methods.matchPassword = async function(password){
-    // Utilizar ell método compare
+    // Utilizar el método compare
     const response = await bcrypt.compare(password,this.password)
     // Retornar el booleano
     return response
