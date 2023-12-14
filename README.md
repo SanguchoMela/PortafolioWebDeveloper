@@ -30,3 +30,7 @@ Start the server
   npm run start
   npm run dev
 ```
+
+## Screenshots
+#### Landing page
+![image](https://github.com/SanguchoMela/PortafolioWebDeveloper/assets/117743859/f304a42c-9f3b-4659-968e-e8b0ee867d0b)
