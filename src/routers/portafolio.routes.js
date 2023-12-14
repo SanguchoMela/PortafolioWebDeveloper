@@ -1,6 +1,13 @@
 // Importar router de express
 const{Router} = require('express')
-const { renderPortafolioForm, createNewPortafolio, renderAllPortafolios, renderPortafolio, renderEditPortafolioForm, updatePortafolio, deletePortafolio } = require('../controllers/portafolio.controller')
+const { renderPortafolioForm, 
+        createNewPortafolio, 
+        renderAllPortafolios, 
+        renderPortafolio, 
+        renderEditPortafolioForm, 
+        updatePortafolio, 
+        deletePortafolio 
+    } = require('../controllers/portafolio.controller')
 
 // Instanciar la variable router
 const router = Router()

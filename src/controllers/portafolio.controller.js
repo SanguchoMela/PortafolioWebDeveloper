@@ -38,17 +38,17 @@ const createNewPortafolio =async (req,res)=>{
     res.redirect('/portafolios')
 }
 
-
-
-
 // Método para actualizar el formulario
-const renderEditPortafolioForm = (req,res)=>{
-    res.send('Formulario para editar un portafolio')
+const renderEditPortafolioForm =async(req,res)=>{
+    const portfolio = await Portfolio.findById(req.params.id).lean()
+    res.render('portafolio/editPortfolio',{portfolio})
 }
 
 // Método para actualizar en la BDD lo capturado en el form
-const updatePortafolio = (req,res)=>{
-    res.send('Editar un portafolio')
+const updatePortafolio = async(req,res)=>{
+    const {title,category,description}= req.body
+    await Portfolio.findByIdAndUpdate(req.params.id,{title,category,description})
+    res.redirect('/portafolios')
 }
 
 // Método para eliminar en la BDD

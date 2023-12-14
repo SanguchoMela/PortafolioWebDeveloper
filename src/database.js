@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 //const MONGODB_URI = 'mongodb+srv://byrontosh:sistemas@cluster0.6e8zntc.mongodb.net/test'
 
 // MongoDB Local
+// const MONGODB_URI = 'mongodb://localhost:27017/portfolio'
 
 // Crear un método para hacer la cadena de conexión
 connection = async()=>{
