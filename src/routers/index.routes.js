@@ -7,7 +7,6 @@ const router = Router()
 
 router.get('/',renderIndex)
 
-router.get('/login',renderLogin)
 
 // router.get('/contact',renderContact)
 

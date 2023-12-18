@@ -40,14 +40,19 @@ const createNewPortafolio =async (req,res)=>{
 
 // Método para actualizar el formulario
 const renderEditPortafolioForm =async(req,res)=>{
+    // Consulta del portafolio en BDD con el ID
     const portfolio = await Portfolio.findById(req.params.id).lean()
+    // Mandar a la vista
     res.render('portafolio/editPortfolio',{portfolio})
 }
 
 // Método para actualizar en la BDD lo capturado en el form
 const updatePortafolio = async(req,res)=>{
+    // Capturar los datos del body
     const {title,category,description}= req.body
+    // Actualizar el portafolio en BDD 
     await Portfolio.findByIdAndUpdate(req.params.id,{title,category,description})
+    // Redireccionar
     res.redirect('/portafolios')
 }
 

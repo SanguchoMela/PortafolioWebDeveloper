@@ -8,11 +8,19 @@ const path = require('path');
 const { engine }  = require('express-handlebars')
 
 // Importar el methodOverride
-const methodOverride = require('method-override');
+const methodOverride = require('method-override')
+
+// Importación de passport
+const passport = require('passport');
+
+// Importación de express-session
+const session = require('express-session');
 
 // INICIALIZACIONES
 // Instanciar express
 const app = express()
+
+require('./config/passport')
 
 // CONFIGURACIONES
 
@@ -33,14 +41,28 @@ app.set('view engine','.hbs')
 
 // MIDDLEWARS (use)
 // app.use(express.json())
+
 // Servidor va a trabajor con información en base a formularios
 app.use(express.urlencoded({extended:false}))
 
 app.use(methodOverride('_method'))
 
+// Configurar la sesión del usuario
+app.use(session({ 
+    secret: 'secret',
+    resave:true,
+    saveUninitialized:true
+}));
+// Inicializar passport.js y session
+app.use(passport.initialize())
+app.use(passport.session())
+
 // VARIABLES GLOBALES
 
-
+app.use((req,res,next)=>{
+    res.locals.user = req.user?.name || null
+    next()
+})
 
 // RUTAS
 
@@ -52,6 +74,8 @@ app.use(methodOverride('_method'))
 app.use(require('./routers/index.routes'))
 
 app.use(require('./routers/portafolio.routes'))
+
+app.use(require('./routers/user.routes'))
 
 // ARCHIVOS ESTÁTICOS
 //Definir archivos estáticos y públicos
