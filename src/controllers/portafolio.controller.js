@@ -1,10 +1,13 @@
 // Importar el modelo
 const Portfolio = require('../models/Portfolio')
 
+// Importar el método uploadImage
+const { uploadImage } = require('../config/cloudinary')
+
 // Método para listar los portafolios
 const renderAllPortafolios = async(req,res)=>{
     // Listar todos los portafolios y transformar en objetos lean
-    const portfolios = await Portfolio.find().lean()
+    const portfolios = await Portfolio.find({user:req.user._id}).lean()
     // 
     res.render("portafolio/allPortfolios",{portfolios})
 }
@@ -30,7 +33,20 @@ const createNewPortafolio =async (req,res)=>{
     
     // Crear una nueva instancia
     const newPortfolio = new Portfolio(req.body)
-    
+    // Asociar el portafolio con el usuario
+    newPortfolio.user = req.user._id
+    // Validar si existe una imagen
+    if(!(req.files?.image)) return res.send("Se requiere una imagen")
+    // Utilizar el método
+    try {
+        const imageUpload = await uploadImage(req.files.image.tempFilePath)
+        newPortfolio.image = {
+            public_id:imageUpload.public_id,
+            secure_url:imageUpload.secure_url
+        }
+    } catch (error) {
+        console.log(error)
+    }
     // Guardar en la BDD
     await newPortfolio.save()
     // Mostrar el resultado
