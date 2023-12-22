@@ -3,7 +3,6 @@
 Aplicación web desarrollada en Express - Node.js
 
 
-
 ## Run Locally
 
 Clone the project
@@ -33,10 +32,24 @@ Start the server
 
 ## Environment Variables
 
-To run this project, you will need to add the following environment variables to your .env file
+To run this project, you will need to add the following environment variables to your `.env` file
+#### Database
+- `MONGODB_URI`
 
-`MONGODB_URI`
+#### Cloudinary
+- `CLOUD_NAME`
+- `API_KEY`
+- `API_SECRET`
 
 ## Screenshots
 #### Landing page
 ![image](https://github.com/SanguchoMela/PortafolioWebDeveloper/assets/117743859/f304a42c-9f3b-4659-968e-e8b0ee867d0b)
+
+#### Register
+![image](https://github.com/SanguchoMela/PortafolioWebDeveloper/assets/117743859/9c868ce9-34bb-4124-91b9-1f85bbc56a96)
+
+#### Login
+![image](https://github.com/SanguchoMela/PortafolioWebDeveloper/assets/117743859/66e87fba-b55a-41af-bf76-cab546c5fbcb)
+
+#### User´s main page
+![image](https://github.com/SanguchoMela/PortafolioWebDeveloper/assets/117743859/42f77460-9e34-4681-b7c4-e33a443ee251)
