@@ -7,7 +7,8 @@ const { renderRegisterForm,
         registerNewUser, 
         renderLoginForm, 
         loginUser, 
-        logoutUser 
+        logoutUser, 
+        confirmEmail
     } = require('../controllers/user.controller')
 
 // Instanciar la variable router
@@ -27,6 +28,9 @@ router.post('/user/login',loginUser)
 
 // Ruta para cerrar sesión del usuario
 router.post('/user/logout',logoutUser)
+
+//
+router.get('/user/confirmar/:token',confirmEmail)
 
 // Exportar la variable router
 module.exports = router
