@@ -15,7 +15,7 @@ const transporter = nodemailer.createTransport({
 module.exports.sendMailToUser = async(userMail,token)=>{
     // console.log(token);
     let info = await transporter.sendMail({
-    from: 'admin@esfot.com',
+    from: process.env.USER_MAILTRAP,
     to: userMail,
     subject: "Verifica tu cuenta de correo electrónico",
     html: `<a href="http://localhost:3000/user/confirmar/${token}">Clic para confirmar tu cuenta</a>`,
