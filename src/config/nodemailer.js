@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
 
 // send mail with defined transport object
 module.exports.sendMailToUser = async(userMail,token)=>{
-    console.log(token);
+    // console.log(token);
     let info = await transporter.sendMail({
     from: 'admin@esfot.com',
     to: userMail,

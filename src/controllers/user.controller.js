@@ -30,7 +30,8 @@ const registerNewUser = async(req,res)=>{
     // Encriptar el password
     newUser.password = await newUser.encrypPassword(password)
     // Crear token cuando el usuario se registre
-    newUser.crearToken()
+    const token = newUser.crearToken()
+    // Enviar el correo electronico
     sendMailToUser(email,token)
     // Guardar en BDD
     newUser.save()
