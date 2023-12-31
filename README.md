@@ -41,6 +41,15 @@ To run this project, you will need to add the following environment variables to
 - `API_KEY`
 - `API_SECRET`
 
+#### E-mail 
+Gmail, Hotmail or Mailtrap
+- `HOST_MAILTRAP` 
+- `PORT_MAILTRAP`
+- `USER_MAILTRAP`
+- `PASS_MAILTRAP`
+
+If you use Hotmail, add `EMAIL_SERVICE`
+
 ## Screenshots
 #### Landing page
 ![image](https://github.com/SanguchoMela/PortafolioWebDeveloper/assets/117743859/f304a42c-9f3b-4659-968e-e8b0ee867d0b)
