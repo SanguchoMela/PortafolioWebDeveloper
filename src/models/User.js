@@ -22,7 +22,7 @@ const userSchema = new Schema({
         type:String,
         default:null
     },
-confirmEmail:{
+    confirmEmail:{
         type:Boolean,
         default:false
     }
