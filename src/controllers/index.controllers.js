@@ -16,7 +16,7 @@ const renderLogin = (req,res)=>{
 // }
 
 // Exportar las dos funciones
-module.exports ={
+module.exports = {
     renderIndex, 
     renderLogin
 }

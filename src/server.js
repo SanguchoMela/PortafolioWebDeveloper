@@ -28,7 +28,7 @@ require('./config/passport')
 // CONFIGURACIONES
 
 // Variables de configuración
-app.set('port',process.env.port || 3000)
+app.set('port',process.env.PORT || 3000)
 app.set('views',path.join(__dirname, 'views'))
 
 // Establecer la carpeta temporal y el directorio
