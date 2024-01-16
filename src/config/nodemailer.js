@@ -33,7 +33,7 @@ let transporter = nodemailer.createTransport({
     }
 });
 
-const sendMailToUser = (userMail, token) => {
+module.exports.sendMailToUser = (userMail, token) => {
     let mailOptions = {
         from: process.env.USER_MAILTRAP,
         to: userMail,
@@ -55,5 +55,3 @@ const sendMailToUser = (userMail, token) => {
         }
     });
 };
-
-module.exports = sendMailToUser
