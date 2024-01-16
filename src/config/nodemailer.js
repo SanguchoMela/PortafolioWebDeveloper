@@ -55,3 +55,5 @@ const sendMailToUser = (userMail, token) => {
         }
     });
 };
+
+module.exports = sendMailToUser
